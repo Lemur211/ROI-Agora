@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="calculator-container">
-        <h1>CSR ROI Calculator</h1>
+        <h1>Agora ROI Calculator</h1>
         <div class="input-section">
             <h2>Input Variables</h2>
             <div class="input-grid">
@@ -166,11 +166,65 @@
             </table>
             
             <div class="results-summary">
-                <h3 id="improvementPercent">Net Income Improvement: </h3>
-                <p id="monthlyIncrease">Monthly Net Income Increase: </p>
-                <p id="annualIncrease">Annual Net Income Increase: </p>
+                <h3 id="improvementPercent">Net Income Improvement: 0% </h3>
+                <p id="monthlyIncrease">Monthly Net Income Increase: 0 </p>
+                <p id="annualIncrease">Annual Net Income Increase: 0 </p>
+                <p id="roi">ROI: 0% </p>
             </div>
         </div>
-    </div>
+    </div>  
+<script src="meth.js"></script>
+<script>
+function updateCalculations() {
+    const inputs = {
+        leadsCalledPerMonth: parseFloat(document.getElementById('leadsCalledPerMonth').value) || 0,
+        closePercentBefore: parseFloat(document.getElementById('closePercentBefore').value) || 0,
+        closePercentAfter: parseFloat(document.getElementById('closePercentAfter').value) || 0,
+        revenuePerItemSold: parseFloat(document.getElementById('revenuePerItemSold').value) || 0,
+        commissionPerSale: parseFloat(document.getElementById('commissionPerSale').value) || 0,
+        costPerUnit: parseFloat(document.getElementById('costPerUnit').value) || 0,
+        otherCostsBefore: parseFloat(document.getElementById('otherCostsBefore').value) || 0,
+        otherCostsAfter: parseFloat(document.getElementById('otherCostsAfter').value) || 0,
+        agoraSubscriptionMonthly: parseFloat(document.getElementById('agoraSubscriptionMonthly').value) || 0
+    };
+
+    const results = CalculationTemplate.calculate(inputs);
+    document.getElementById('leadsCalledBefore').textContent = CalculationTemplate.formatNumber(results.before.leadsCalledPerMonth);
+    document.getElementById('leadsCalledAfter').textContent = CalculationTemplate.formatNumber(results.after.leadsCalledPerMonth);
+    document.getElementById('closePercentBeforeDisplay').textContent = results.before.closePercent + '%';
+    document.getElementById('closePercentAfterDisplay').textContent = results.after.closePercent + '%';
+    document.getElementById('revenueBefore').textContent = CalculationTemplate.formatCurrency(results.before.revenue);
+    document.getElementById('revenueAfter').textContent = CalculationTemplate.formatCurrency(results.after.revenue);
+    document.getElementById('cogsBefore').textContent = CalculationTemplate.formatCurrency(results.before.cogs);
+    document.getElementById('cogsAfter').textContent = CalculationTemplate.formatCurrency(results.after.cogs);
+    document.getElementById('grossProfitBefore').textContent = CalculationTemplate.formatCurrency(results.before.grossProfit);
+    document.getElementById('grossProfitAfter').textContent = CalculationTemplate.formatCurrency(results.after.grossProfit);
+    document.getElementById('grossMarginBefore').textContent = CalculationTemplate.formatPercent(results.before.grossMargin);
+    document.getElementById('grossMarginAfter').textContent = CalculationTemplate.formatPercent(results.after.grossMargin);
+    document.getElementById('commissionExpenseBefore').textContent = CalculationTemplate.formatCurrency(results.before.commissionExpense);
+    document.getElementById('commissionExpenseAfter').textContent = CalculationTemplate.formatCurrency(results.after.commissionExpense);
+    document.getElementById('agoraSubscriptionBefore').textContent = CalculationTemplate.formatCurrency(results.before.agoraSubscription);
+    document.getElementById('agoraSubscriptionAfter').textContent = CalculationTemplate.formatCurrency(results.after.agoraSubscription);
+    document.getElementById('otherCostsBefore').textContent = CalculationTemplate.formatCurrency(results.before.otherCosts);
+    document.getElementById('otherCostsAfter').textContent = CalculationTemplate.formatCurrency(results.after.otherCosts);
+    document.getElementById('totalOperatingExpensesBefore').textContent = CalculationTemplate.formatCurrency(results.before.totalOperatingExpenses);
+    document.getElementById('totalOperatingExpensesAfter').textContent = CalculationTemplate.formatCurrency(results.after.totalOperatingExpenses);
+    document.getElementById('netIncomeBefore').textContent = CalculationTemplate.formatCurrency(results.before.netIncome);
+    document.getElementById('netIncomeAfter').textContent = CalculationTemplate.formatCurrency(results.after.netIncome);
+    document.getElementById('improvementPercent').textContent = `Net Income Improvement: ${results.netIncomeImprovement.toFixed(1)}%`;
+    document.getElementById('monthlyIncrease').textContent = `Monthly Net Income Increase: ${CalculationTemplate.formatCurrency(results.monthlyIncrease)}`;
+    document.getElementById('annualIncrease').textContent = `Annual Net Income Increase: ${CalculationTemplate.formatCurrency(results.annualIncrease)}`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input[type="number"]');
+    inputs.forEach(input => {
+        input.addEventListener('input', updateCalculations);
+    });
+    updateCalculations();
+});
+</script>
+</script>
+</script>
 </body>
 </html>

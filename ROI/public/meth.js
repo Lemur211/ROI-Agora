@@ -1,14 +1,14 @@
 const CalculationTemplate = {
     inputs: {
-        leadsCalledPerMonth: 0,
-        closePercentBefore: 0,
-        closePercentAfter: 0,
-        revenuePerItemSold: 0,
-        commissionPerSale: 0,
-        costPerUnit: 0,
-        otherCostsBefore: 0,
-        otherCostsAfter: 0,
-        agoraSubscriptionMonthly: 0,
+        leadsCalledPerMonth: 1500,
+        closePercentBefore: 1500,
+        closePercentAfter: 1500,
+        revenuePerItemSold: 1500,
+        commissionPerSale: 1500,
+        costPerUnit: 1500,
+        otherCostsBefore: 1500,
+        otherCostsAfter: 1500,
+        agoraSubscriptionMonthly: 1500,
     },
     calculate: function(inputs) {
         const before = {
