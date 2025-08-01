@@ -102,65 +102,65 @@
                 <thead>
                     <tr>
                         <th>Income Statement Item</th>
-                        <th class="right-align">Before AI</th>
+                        <th class="right-align">Before Agora</th>
                         <th class="right-align">After Agora</th>
                     </tr>
                 </thead>
                 <tbody id="resultsTable">
                   <tr>
                       <td>Leads Called</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="leadsCalledBefore"></td>
+                      <td class="right-align" id="leadsCalledAfter"></td>
                   </tr>
                   <tr>
                       <td>Close %</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="closePercentBeforeDisplay"></td>
+                      <td class="right-align" id="closePercentAfterDisplay"></td>
                   </tr>
                   <tr class="highlight-row">
                       <td><strong>Revenue</strong></td>
-                      <td class="right-align"><strong></strong></td>
-                      <td class="right-align"><strong></strong></td>
+                      <td class="right-align" id="revenueBefore"><strong></strong></td>
+                      <td class="right-align" id="revenueAfter"><strong></strong></td>
                   </tr>
                   <tr>
                       <td>COGS</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="cogsBefore"></td>
+                      <td class="right-align" id="cogsAfter"></td>
                   </tr>
                   <tr>
                       <td>Gross Profit</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="grossProfitBefore"></td>
+                      <td class="right-align" id="grossProfitAfter"></td>
                   </tr>
                   <tr>
                       <td>Gross Margin (%)</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="grossMarginBefore"></td>
+                      <td class="right-align" id="grossMarginAfter"></td>
                   </tr>
                   <tr>
                       <td>Commission Expense</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="commissionExpenseBefore"></td>
+                      <td class="right-align" id="commissionExpenseAfter"></td>
                   </tr>
                   <tr>
                       <td>Agora Subscription</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="agoraSubscriptionBefore"></td>
+                      <td class="right-align" id="agoraSubscriptionAfter"></td>
                   </tr>
                   <tr>
                       <td>Other Costs</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="otherCostsBefore"></td>
+                      <td class="right-align" id="otherCostsAfter"></td>
                   </tr>
                   <tr>
                       <td>Total Operating Expenses</td>
-                      <td class="right-align"></td>
-                      <td class="right-align"></td>
+                      <td class="right-align" id="totalOperatingExpensesBefore"></td>
+                      <td class="right-align" id="totalOperatingExpensesAfter"></td>
                   </tr>
                   <tr class="highlight-row">
                       <td><strong>Net Income</strong></td>
-                      <td class="right-align"><strong></strong></td>
-                      <td class="right-align"><strong></strong></td>
+                      <td class="right-align" id="netIncomeBefore"><strong></strong></td>
+                      <td class="right-align" id="netIncomeAfter"><strong></strong></td>
                   </tr>
                 </tbody>
             </table>
@@ -225,8 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // it brokie :(
 //test for commit
-</script>
-</script>
 </script>
 </body>
 </html>
