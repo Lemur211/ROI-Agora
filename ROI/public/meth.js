@@ -1,16 +1,5 @@
 const CalculationTemplate = { // high key probably not needed but it works so leaving it lol 
-    inputs: {
-        leadsCalledPerMonth: 1500,
-        closePercentBefore: 1500,
-        closePercentAfter: 1500,
-        revenuePerItemSold: 1500,
-        commissionPerSale: 1500,
-        costPerUnit: 1500,
-        otherCostsBefore: 1500,
-        otherCostsAfter: 1500,
-        agoraSubscriptionMonthly: 1500,
-    },
-    
+
     calculate: function(inputs) {
         const before = {
             leadsCalledPerMonth: inputs.leadsCalledPerMonth,
