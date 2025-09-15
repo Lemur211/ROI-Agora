@@ -30,15 +30,21 @@ const CalculationTemplate = { // high key probably not needed but it works so le
         after.grossMargin = after.revenue > 0 ? (after.grossProfit / after.revenue) : 0;
         after.totalOperatingExpenses = after.commissionExpense + after.agoraSubscription + after.otherCosts;
         after.netIncome = after.grossProfit - after.totalOperatingExpenses;
+        
         const netIncomeImprovement = before.netIncome !== 0 ? 
-            ((after.netIncome - before.netIncome) / Math.abs(before.netIncome)) * 100 : 0;
+            ((after.netIncome - before.netIncome) / before.netIncome) * 100 : 0;
+
+        const annualIncrease = (after.netIncome - before.netIncome) * 12;
+        const annualInvestment = inputs.agoraSubscriptionMonthly * 12;
+        const roi = annualInvestment > 0 ? (annualIncrease / annualInvestment) * 100 : 0;
 
         return { 
             before, 
             after, 
             netIncomeImprovement,
             monthlyIncrease: after.netIncome - before.netIncome,
-            annualIncrease: (after.netIncome - before.netIncome) * 12
+            annualIncrease: annualIncrease,
+            roi: roi
         };
     },
     formatNumber: function(num) {
